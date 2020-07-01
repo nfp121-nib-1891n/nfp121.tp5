@@ -2,35 +2,37 @@ package question2;
 
 import java.util.List;
 import java.util.Map;
-// à  compléter
+import java.util.LinkedList;
+import java.util.HashMap;
+import java.util.Collections;
 import java.util.StringTokenizer;
 
 public class Chapitre2CoreJava2 {
 
     /**
-     * Obtention d'une liste de mots a  partir de la constante CHAPITRE2.
+     * Obtention d'une liste de mots a  partir de la constante CHAPITRE2.
      * 
      **/
     public static List<String> listeDesMots() {
-        List<String> liste = null; // à  compléter
-
-        StringTokenizer st = new StringTokenizer(Chapitre2CoreJava2.CHAPITRE2,
-                "[](){};, :.\n\"");
-        // à  compléter
-
+        List<String> liste = new LinkedList<>();
+        StringTokenizer st = new StringTokenizer(Chapitre2CoreJava2.CHAPITRE2, "[](){};, :.\n\"");
+        while (st.hasMoreElements()) {
+            liste.add(st.nextToken());
+        }
         return liste;
     }
 
     /**
      * Obtention d'une liste de couples <String,Integer>. 
-     * A chaque mot présent dans la liste, est associé son nombre d'occurrence.
+     * A chaque mot pr�sent dans la liste, est associ� son nombre d'occurrence.
      * 
-     * @param liste la liste des mots
+     * @param liste La liste des mots.
      */
     public static Map<String, Integer> occurrencesDesMots(List<String> liste) {
-        Map<String, Integer> table = null; // à  compléter
-        // à  compléter
-        // à  compléter
+        Map<String, Integer> table = new HashMap<>();
+        for (String mot : liste) {
+            table.merge(mot, 1, (a, b) -> a + b);
+        }
         return table;
     }
 
